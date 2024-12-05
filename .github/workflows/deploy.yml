@@ -29,16 +29,16 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "cd client/packages/rtc-web/ && npm install"
+        run: "cd client/packages/ && npm install"
 
       - name: Build step
-        run: "cd client/packages/rtc-web/ &&  run build:pro"
+        run: "cd client/packages/ &&  run build:pro"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "eyte-tl-rtc-file-91"
           entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts"
-          root: "client/packages/rtc-web/dist"
+          root: "client/packages/dist"
           
           
